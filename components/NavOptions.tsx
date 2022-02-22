@@ -2,27 +2,13 @@ import { Text, View, FlatList, TouchableOpacity, Image } from 'react-native';
 import React from 'react';
 import tw from 'tailwind-react-native-classnames';
 import { Icon } from 'react-native-elements';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, NavigationProp, ParamListBase } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 import { selectOrigin } from '../slices/navSlice';
-
-const data = [
-  {
-    id: '123',
-    title: 'Get a ride',
-    image: 'https://links.papareact.com/3pn',
-    screen: 'MapScreen',
-  },
-  {
-    id: '456',
-    title: 'Order food',
-    image: 'https://links.papareact.com/28w',
-    screen: 'EatScreen',
-  },
-];
+import { data } from '../data/fakeData';
 
 const NavOptions = () => {
-  const navigation = useNavigation();
+  const navigation: NavigationProp<ParamListBase> = useNavigation();
   const origin = useSelector(selectOrigin);
 
   return (
@@ -49,6 +35,7 @@ const NavOptions = () => {
               type='antdesign'
               color='white'
               name='arrowright'
+              tvParallaxProperties={undefined}
             />
           </View>
         </TouchableOpacity>

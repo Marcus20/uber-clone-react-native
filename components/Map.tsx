@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { selectDestination, selectOrigin } from '../slices/navSlice';
 import MapViewDirections from 'react-native-maps-directions';
 import { GOOGLE_MAPS_APIKEY } from '@env';
+import { OriginType } from './types/MapTypes';
 
 const Map = () => {
   const origin = useSelector(selectOrigin);
@@ -22,12 +23,12 @@ const Map = () => {
     });
   }, [origin, destination]);
 
-  const getMarkerWithCoordinates = (obj, title, identifier) => {
+  const getMarkerWithCoordinates = (obj: OriginType, title: string, identifier: string) => {
     return (
       <Marker
         coordinate={{
           latitude: obj.location.lat,
-          longitude: obj.location.lng,
+          longitude: obj.location.lng, 
         }}
         title={title}
         description={obj.description}

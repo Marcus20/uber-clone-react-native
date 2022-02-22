@@ -46,7 +46,9 @@ const HomeScreen = () => {
             dispatch(setDestination(null));
           }}
           fetchDetails={true}
-          returnKeyType={'search'}
+          textInputProps={{
+            returnKeyType: 'search'
+          }}
           minLength={2}
           query={{
             key: GOOGLE_MAPS_APIKEY,

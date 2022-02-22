@@ -5,11 +5,11 @@ import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplet
 import { GOOGLE_MAPS_APIKEY } from '@env';
 import { useDispatch } from 'react-redux';
 import { setDestination } from '../slices/navSlice';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation , NavigationProp, ParamListBase } from '@react-navigation/native';
 
 const NavigateCard = () => {
   const dispatch = useDispatch();
-  const navigation = useNavigation();
+  const navigation: NavigationProp<ParamListBase> = useNavigation();
 
   return (
     <SafeAreaView style={tw`bg-white flex-1`}>
@@ -19,7 +19,9 @@ const NavigateCard = () => {
           placeholder='Where to?'
           styles={toInputBoxStyles}
           fetchDetails={true}
-          returnKeyType={'search'}
+          textInputProps={{
+            returnKeyType: 'search'
+          }}
           minLength={2}
           onPress={(data, details = null) => {
             dispatch(
