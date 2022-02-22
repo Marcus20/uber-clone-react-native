@@ -6,3 +6,5 @@ export const store = configureStore({
     nav: navReducer,
   },
 });
+
+export type RootState = ReturnType<typeof store.getState>;

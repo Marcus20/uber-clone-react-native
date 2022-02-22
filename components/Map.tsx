@@ -22,7 +22,7 @@ const Map = () => {
     });
   }, [origin, destination]);
 
-  getMarkerWithCoordinates = (obj, title, identifier) => {
+  const getMarkerWithCoordinates = (obj, title, identifier) => {
     return (
       <Marker
         coordinate={{
@@ -59,9 +59,9 @@ const Map = () => {
       )}
 
       {origin?.location &&
-        this.getMarkerWithCoordinates(origin, 'Origin', 'origin')}
+        getMarkerWithCoordinates(origin, 'Origin', 'origin')}
       {destination?.location &&
-        this.getMarkerWithCoordinates(
+        getMarkerWithCoordinates(
           destination,
           'Destination',
           'destination'

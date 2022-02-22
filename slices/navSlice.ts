@@ -1,6 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
+type SliceState = {
+  origin: null;
+  destination: null;
+  travelTimeInformation: null;
+};
+
+const initialState: SliceState = {
   origin: null,
   destination: null,
   travelTimeInformation: null,
