@@ -5,7 +5,7 @@ import { Icon } from 'react-native-elements';
 import { useNavigation, NavigationProp, ParamListBase } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 import { selectOrigin } from '../slices/navSlice';
-import { data } from '../data/fakeData';
+import { actionData } from '../data/fakeData';
 
 const NavOptions = () => {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
@@ -13,7 +13,7 @@ const NavOptions = () => {
 
   return (
     <FlatList
-      data={data}
+      data={actionData}
       horizontal
       keyExtractor={(item) => item.id}
       renderItem={({ item }) => (
